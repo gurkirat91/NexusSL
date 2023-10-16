@@ -1,0 +1,20 @@
+body {
+  margin: 0;
+  line-height: normal;
+}
+
+:root {
+  /* fonts */
+  --font-montserrat: Montserrat;
+
+  /* font sizes */
+  --font-size-base: 16px;
+  --font-size-sm: 14px;
+
+  /* Colors */
+  --color-tomato-100: #ed5b2d;
+  --color-tomato-200: rgba(237, 91, 45, 0.2);
+
+  /* Border radiuses */
+  --br-9xs: 4px;
+}

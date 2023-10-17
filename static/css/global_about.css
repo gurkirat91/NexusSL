@@ -1,0 +1,16 @@
+body {
+    margin: 0;
+    line-height: normal;
+  }
+  
+  :root {
+    /* fonts */
+    --font-work-sans: "Work Sans";
+  
+    /* font sizes */
+    --font-size-2xl: 21px;
+  
+    /* Colors */
+    --color-tomato: #ed5b2d;
+  }
+  

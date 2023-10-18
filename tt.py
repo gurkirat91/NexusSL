@@ -42,7 +42,9 @@ def contact():
 def home():
     return render_template("home_sign_to_text.html")
 
-
+@app.route("/text_to_sl")
+def text_to_sl():
+    return render_template("text_to_sign.html")
 
 if __name__== "__main__":
     app.run(debug=True)

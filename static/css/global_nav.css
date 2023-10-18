@@ -2,11 +2,13 @@ body {
   height: 100%;
   overflow-y: hidden;
 }
-.nav-link:link{
+.nav-link{
     color:rgba(237, 91, 45, 1);
+    text-decoration: none;
 }
 .nav-link:hover{
     color:#99a086;
+    text-decoration: none;
 }
 .bg{
     background-color: #f6f6e9;

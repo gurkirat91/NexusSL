@@ -1,6 +1,7 @@
 body {
   height: 100%;
   overflow-y: hidden;
+  margin: 0;
 }
 .nav-link{
     color:rgba(237, 91, 45, 1);
@@ -58,3 +59,6 @@ body {
     left: -50%;
     top: 4%
   }
+html{
+  margin: 0%;
+}

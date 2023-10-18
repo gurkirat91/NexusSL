@@ -24,6 +24,8 @@
 .line {
   border-left: 2px solid rgba(237, 91, 45, 1);
   height: 500px;
+  margin-left: auto;
+  margin-right: auto;
 }
 .camera{
     display: flex;

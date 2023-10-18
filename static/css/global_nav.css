@@ -48,16 +48,19 @@ body {
     height: 30px;
     width: 22px; 
     margin-left: 14px;
+    cursor: pointer;
   }
   .nav-logo{
     position: relative;
     /* justify-content: flex-start; */
-    width: 13%;
-    height: 47%;
-    margin: 14px;
+    display: flex;
+    width: 82%;
+    height: 45%;
+    margin: 18px;
     /* padding-right: 48%; */
-    left: -50%;
-    top: 4%
+    left: -418%;
+    top: 4%;
+    margin-right: auto;
   }
 html{
   margin: 0%;

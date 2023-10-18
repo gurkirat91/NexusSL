@@ -1,0 +1,25 @@
+.content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .text{
+    font-size: 18px;
+    color: #677d2a;
+    text-align: justify;
+    font-family: 'Work Sans', sans-serif;
+    letter-spacing: 0.11em;
+    line-height: 37px;
+    padding: 3%;
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+  .logo{
+    position: relative;
+      margin-top: 5%;
+      margin-left: auto;
+      margin-right: auto;
+      object-fit: cover;
+      width: 50%;
+  }

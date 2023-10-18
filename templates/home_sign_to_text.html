@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block data%}
+        <div class="signtotext">
+            <div class="main">
+                <div class="sign main-el">
+                    <p class="sub-el">VIEWING WINDOW</p>
+                    <div class="camera sub-el">
+                        <img class="camera-icon sub-el" alt="" src={{url_for('static',filename='images/camera.svg')}} />
+                    </div>
+                    <p class="sub-el"><i>Language detected...</i></p>
+                </div>
+                <div class="line main-el"></div>
+                <div class="txt main-el">
+                    <p class="sub-el">TRANSLATED TEXT</p>
+                    <p class="sub-el">Sample text goes here...</p>
+                </div>
+            </div>
+            <div class="toggle"><label class="switch">
+                <input type="checkbox">
+                <span class="slider round"></span>
+            </label>
+        </div>
+        </div>
+{% endblock %}

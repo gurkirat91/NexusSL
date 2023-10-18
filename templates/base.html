@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="initial-scale=1, width=device-width" />
+<!--    all css -->
+    <link rel="stylesheet" href={{url_for('static',filename='css/global_nav.css')}} />
+    <link rel="stylesheet" href={{url_for('static',filename='css/about.css')}} />
+    <link rel="stylesheet" href={{url_for('static',filename='css/signTtext.css')}} />
+    <link rel="stylesheet" href={{url_for('static',filename='css/contact.css')}} />
+<!--/////////////////////-->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Work Sans:wght@700&display=swap" />
+
+</head>
+
+<body>
+  <div class="bg">
+    <div class="navflex">
+        <img class="nav-logo" alt="" src={{url_for('static',filename='images/logo.png')}} />
+        <div class="nav-item"><a href="{{url_for('about')}} " class="nav-link">ABOUT US</a></div>
+        <div class="nav-item"><a href="{{url_for('contact')}} ">CONTACT US</a></div>
+        <img class="nav-item-img" alt="" src={{url_for('static',filename='images/user.svg')}} />
+        <div class="nav-item p">PROFILE</div>
+    </div>
+    {% block data %}-->
+
+    {% endblock %}
+  </div>
+</body>

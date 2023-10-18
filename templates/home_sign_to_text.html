@@ -13,14 +13,33 @@
                 <div class="line main-el"></div>
                 <div class="txt main-el">
                     <p class="sub-el">TRANSLATED TEXT</p>
-                    <textarea type="text" class="sub-el txt-box" placeholder="Sample text goes here..."></textarea>
-                    <!-- <p class="sub-el">Sample text goes here...</p> -->
+                    <p class="sub-el">Sample text goes here...</p>
                 </div>
             </div>
             <div class="toggle"><label class="switch">
-                <input type="checkbox">
+
+
+<!--                <input type="checkbox">-->
+                <input type="checkbox" id="linkCheckbox" onchange="changeLink()">
                 <span class="slider round"></span>
+                <a id="dynamicLink" href="#">Dynamic Link</a>
             </label>
         </div>
+            <script>
+            function changeLink() {
+<!--                console.log("hello")-->
+                var checkbox = document.getElementById('linkCheckbox');
+                var dynamicLink = document.getElementById('dynamicLink');
+
+                if (checkbox.checked) {
+<!--                 console.log("hello")-->
+                    window.location.replace('/about');
+                    dynamicLink.href = '{{url_for('about')}}'; // Set the link when the checkbox is checked
+                } else {
+                    dynamicLink.href = '#'; // Set a default link (or anchor) when the checkbox is unchecked
+                }
+
+            }
+            </script>
         </div>
 {% endblock %}

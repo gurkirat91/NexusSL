@@ -3,7 +3,7 @@ from flask import Flask,redirect,url_for,render_template,request
 app = Flask(__name__)
 
 
-dp = {'kirat@gmail.com': '1234'}
+dp = {'kirat@gmail.com': '1234','rupinder@gmail.com' : '1234'}
 
 
 

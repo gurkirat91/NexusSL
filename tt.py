@@ -1,5 +1,5 @@
 from flask import Flask,redirect,url_for,render_template,request
-
+from models.main import textToSign
 app = Flask(__name__)
 
 
@@ -45,8 +45,9 @@ def home():
 @app.route("/text_to_sl",methods=["POST","GET"])
 def text_to_sl():
     if (request.method == "POST"):
-        name = request.form["tts"]
-        print(name)
+        input_tts = request.form["tts"]
+        print(input_tts)
+        textToSign(input_tts)
     return render_template("text_to_sign.html")
 
 if __name__== "__main__":

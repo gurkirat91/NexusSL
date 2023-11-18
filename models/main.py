@@ -29,14 +29,14 @@ def size(path):
         success,image=vidcap.read()
         resize=cv2.resize(image,(480,848))
 
-def main():
 
+def textToSign(text):
     directory_path = "ISL_Gifs"
     word_image_map = match_words_in_directory(directory_path)
-    ll=[];
-    search_word = "good afternoon"
-    words = search_word.split()     #split the sentence in to words
-    for search_word in words:      # get each word from the list then search in the GIF directory
+    ll = [];
+    search_word = text
+    words = search_word.split()  # split the sentence in to words
+    for search_word in words:  # get each word from the list then search in the GIF directory
         if search_word in word_image_map:
             image_path = word_image_map[search_word]
             print(f"Image path for '{search_word}': {image_path}")
@@ -52,9 +52,38 @@ def main():
                     ll.append(image_path)
             # print(f"No image found for '{search_word}'.")
 
-
     print(ll)
-    output_path = "path_to_output_combined.gif"
+    output_path = "static/results/path_to_output_combined.gif"
     combine_gifs(ll, output_path)
-if __name__ == "__main__":
-    main()
+
+# def main():
+
+    # directory_path = "../ISL_Gifs"
+    # word_image_map = match_words_in_directory(directory_path)
+    # ll=[];
+    # search_word = "Hi Sir"
+    # words = search_word.split()     #split the sentence in to words
+    # for search_word in words:      # get each word from the list then search in the GIF directory
+    #     if search_word in word_image_map:
+    #         image_path = word_image_map[search_word]
+    #         print(f"Image path for '{search_word}': {image_path}")
+    #         ll.append(image_path);
+    #     else:
+    #         # if not there in dataset split the word in to alphabets and then print
+    #         alphabets = list(search_word);
+    #         alphabets = [a.upper() for a in alphabets]
+    #         for s in alphabets:
+    #             if s in word_image_map:
+    #                 image_path = word_image_map[s]
+    #                 print(f"Image path for '{s}': {image_path}")
+    #                 ll.append(image_path)
+    #         # print(f"No image found for '{search_word}'.")
+    #
+    #
+    # print(ll)
+    # # output_path = "path_to_output_combined.gif"
+    # output_path = "../static/results/path_to_output_combined.gif"
+    # combine_gifs(ll, output_path)
+
+# if __name__ == "__main__":
+#     main()

@@ -42,8 +42,11 @@ def contact():
 def home():
     return render_template("home_sign_to_text.html")
 
-@app.route("/text_to_sl")
+@app.route("/text_to_sl",methods=["POST","GET"])
 def text_to_sl():
+    if (request.method == "POST"):
+        name = request.form["tts"]
+        print(name)
     return render_template("text_to_sign.html")
 
 if __name__== "__main__":

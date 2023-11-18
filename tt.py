@@ -48,7 +48,29 @@ def text_to_sl():
         input_tts = request.form["tts"]
         print(input_tts)
         textToSign(input_tts)
-    return render_template("text_to_sign.html")
+        return redirect(url_for("text_to_sign_res"))
+    else:
+        return render_template("text_to_sign.html")
+
+
+@app.route("/text_to_sign_res",methods=["POST","GET"])
+def text_to_sign_res():
+    # return render_template("text_to_sign_res.html")
+    if (request.method == "POST"):
+        input_tts = request.form["tts"]
+        print(input_tts)
+        textToSign(input_tts)
+        return redirect(url_for("text_to_sign_res"))
+    else:
+        return render_template("text_to_sign_res.html")
+#
+# @app.route("/text_to_sl",methods=["POST","GET"])
+# def text_to_sl():
+#     if (request.method == "POST"):
+#         input_tts = request.form["tts"]
+#         print(input_tts)
+#         textToSign(input_tts)
+#     return render_template("text_to_sign.html")
 
 if __name__== "__main__":
     app.run(debug=True)

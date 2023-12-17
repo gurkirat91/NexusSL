@@ -5,8 +5,11 @@
             <div class="main">
                 <div class="sign main-el">
                     <p class="sub-el">VIEWING WINDOW</p>
-                    <div class="camera sub-el">
-                        <img class="camera-icon sub-el" alt="" src={{url_for('static',filename='images/camera.svg')}} />
+<!--                    <div class="camera sub-el">-->
+<!--                        <img class="camera-icon sub-el" alt="" src={{url_for('static',filename='images/camera.svg')}} />-->
+<!--                    </div>-->
+                    <div class="vid">
+                        <img src="{{ url_for('video_feed') }}" alt="Video Feed">
                     </div>
                     <p class="sub-el"><i>Language detected...</i></p>
                 </div>
@@ -18,7 +21,6 @@
                 </div>
             </div>
             <div class="toggle"><label class="switch">
-
 
 <!--                <input type="checkbox">-->
                 <input type="checkbox" id="linkCheckbox" onchange="changeLink()">

@@ -1,6 +1,7 @@
 from flask import Flask,redirect,url_for,render_template,request,Response,jsonify
 from models.main import textToSign
 from models.sl_to_text.app import signtotext
+# from models.sl_to_text.ram import signtotext
 from models.sl_to_text.function import *
 
 import cv2

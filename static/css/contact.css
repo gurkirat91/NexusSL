@@ -4,7 +4,10 @@
     justify-content: center;
     margin: 50px;
 }
-
+/*img{*/
+/*    width: 120px;*/
+/*    height: 110px;*/
+/*}*/
 .left-mem,.right-mem{
     display: flex;
     flex-direction: column;

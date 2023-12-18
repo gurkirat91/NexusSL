@@ -1,8 +1,9 @@
-from flask import Flask,redirect,url_for,render_template,request,Response
+from flask import Flask,redirect,url_for,render_template,request,Response,jsonify
 from models.main import textToSign
 import cv2
 import numpy as np
-
+import os
+from moviepy.editor import VideoFileClip
 
 cap = cv2.VideoCapture(0)
 app = Flask(__name__)
@@ -28,12 +29,6 @@ def login():
                 return redirect(url_for("home"))
     else:
         return render_template("login.html")
-    # if(request.method=="POST"):           #go to home after login
-    #     usr=request.form["username"];
-    #     print(usr)
-    #     return redirect(url_for("home"))
-    # else:
-    #     return render_template("login.html")
 
 @app.route("/about")
 def about():
@@ -105,6 +100,34 @@ def video_feed():
     return Response(generate_frames(), mimetype='multipart/x-mixed-replace; boundary=frame')
 
 
+
+
+# @app.route('/temp')
+# def temp():
+#     return render_template('temp.html')
+
+
+@app.route('/save_video', methods=['POST'])
+def save_video():
+    try:
+        video_blob = request.files['video']
+        webm_path = os.path.join(os.getcwd(), 'static', 'recorded-video.webm')
+        mp4_path = os.path.join(os.getcwd(), 'static', 'converted-video.mp4')
+
+        # Save the WebM video
+        video_blob.save(webm_path)
+
+        # Convert WebM to MP4 using moviepy
+        clip = VideoFileClip(webm_path)
+        clip.write_videofile(mp4_path, codec='libx264', audio_codec='aac')
+        clip.close()
+
+        # Optionally, you can remove the original WebM file
+        os.remove(webm_path)
+
+        return jsonify({'status': 'success'})
+    except Exception as e:
+        return jsonify({'status': 'error', 'message': str(e)})
 
 
 

@@ -15,7 +15,9 @@
             <button id="stopRecord" disabled>Stop Recording</button>
             <button id="saveVideo" disabled>Save Video</button>
             <canvas id="canvas" width="640" height="480" style="display:none;"></canvas>
-
+            <form method="post">
+                <button type="submit">translate</button>
+            </form>
             <script>
                 document.addEventListener('DOMContentLoaded', (event) => {
                     const video = document.getElementById('video');
@@ -91,7 +93,7 @@
                 <div class="line main-el"></div>
                 <div class="txt main-el">
                     <p class="sub-el">TRANSLATED TEXT</p>
-                    <textarea type="text" class="sub-el txt-box" placeholder="Sample text goes here..."></textarea>
+                    <textarea type="text" class="sub-el txt-box" placeholder="Sample text goes here..." ></textarea>
                     <!-- <p class="sub-el">Sample text goes here...</p> -->
                 </div>
             </div>

@@ -1,5 +1,8 @@
 from flask import Flask,redirect,url_for,render_template,request,Response,jsonify
 from models.main import textToSign
+from models.sl_to_text.app import signtotext
+from models.sl_to_text.function import *
+
 import cv2
 import numpy as np
 import os
@@ -38,9 +41,31 @@ def about():
 def contact():
     return render_template("contact.html")
 
-@app.route("/home")
+# @app.route("/home")
+# def home():
+#     return render_template("home_sign_to_text.html")
+
+@app.route("/home",methods=["POST","GET"])
 def home():
-    return render_template("home_sign_to_text.html")
+    text_output=""
+    # return render_template("home_sign_to_text.html")
+    if (request.method == "POST"):
+        text_output=signtotext();
+        print(text_output);
+        return render_template("home_sign_to_text_res.html",text_output=text_output)
+    else:
+        return render_template("home_sign_to_text.html")
+
+# @app.route("home_res",methods=["POST","GET"])
+# def home_res():
+#     if (request.method == "POST"):
+#         text_output = signtotext();
+#         print(text_output);
+#         return redirect(url_for("home_res"))
+#     else:
+#         return render_template("home_res.html")
+
+
 
 @app.route("/text_to_sl",methods=["POST","GET"])
 def text_to_sl():

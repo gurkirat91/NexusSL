@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebM Video Recording</title>
+</head>
+<body>
+
+<h1>WebM Video Recording</h1>
+
+<video id="video" width="640" height="480" autoplay></video>
+<button id="startRecord">Start Recording</button>
+<button id="stopRecord" disabled>Stop Recording</button>
+<button id="saveVideo" disabled>Save Video</button>
+<canvas id="canvas" width="640" height="480" style="display:none;"></canvas>
+
+<script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+        const video = document.getElementById('video');
+        const startRecordButton = document.getElementById('startRecord');
+        const stopRecordButton = document.getElementById('stopRecord');
+        const saveVideoButton = document.getElementById('saveVideo');
+        const canvas = document.getElementById('canvas');
+        const context = canvas.getContext('2d');
+
+        let mediaRecorder;
+        let recordedChunks = [];
+
+        navigator.mediaDevices.getUserMedia({ video: true, audio: true })
+            .then((stream) => {
+                video.srcObject = stream;
+                mediaRecorder = new MediaRecorder(stream, { mimeType: 'video/webm' });
+
+                mediaRecorder.ondataavailable = (event) => {
+                    if (event.data.size > 0) {
+                        recordedChunks.push(event.data);
+                    }
+                };
+
+                mediaRecorder.onstop = () => {
+                    saveVideoButton.disabled = false;
+                };
+            })
+            .catch((error) => {
+                console.error('Error accessing media devices:', error);
+            });
+
+        startRecordButton.addEventListener('click', () => {
+            recordedChunks = [];
+            mediaRecorder.start();
+            startRecordButton.disabled = true;
+            stopRecordButton.disabled = false;
+            saveVideoButton.disabled = true;
+        });
+
+        stopRecordButton.addEventListener('click', () => {
+            mediaRecorder.stop();
+            startRecordButton.disabled = false;
+            stopRecordButton.disabled = true;
+        });
+
+        saveVideoButton.addEventListener('click', () => {
+            const blob = new Blob(recordedChunks, { type: 'video/webm' });
+
+            // Create a FormData object and append the blob data
+            const formData = new FormData();
+            formData.append('video', blob);
+
+            // Use fetch to send the data to the server
+            fetch('/save_video', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Video saved successfully:', data);
+            })
+            .catch(error => {
+                console.error('Error saving video:', error);
+            });
+        });
+    });
+</script>
+
+</body>
+</html>

@@ -2,7 +2,7 @@
 
 ## Overview
 
-Nexus SL is a groundbreaking project aimed at facilitating seamless communication between the deaf and mute community and the able-hearing and speaking populace. Leveraging the power of machine learning and computer vision, this project translates American Sign Language (ASL) gestures into text and vice versa. This README provides an overview of the project, its functionalities, setup instructions, and usage guidelines.
+Using machine learning/computer vision techniques to convert ASL (American Sign Language) to text and convert text to ASL to bridge the conversation gap between deaf and mute people and able hearing andspeaking people
 
 
 ## Technologies Used
